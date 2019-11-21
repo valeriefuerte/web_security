@@ -1,4 +1,9 @@
 <!DOCTYPE HTML>
+<?php
+    $cookie_name = "user";
+    $cookie_value = "Valeria Dopira";
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+?>
 <html>
 <head>
 		<title>Phase Shift by TEMPLATED</title>
@@ -13,6 +18,14 @@
 		</noscript>
 </head>
 <body>
+    <?php
+    if(!isset($_COOKIE[$cookie_name])) {
+        echo "Cookie named '" . $cookie_name . "' is not set!";
+    } else {
+        echo "Cookie '" . $cookie_name . "' is set!<br>";
+        echo "Value is: " . $_COOKIE[$cookie_name];
+    }
+    ?>
 	<div class="wrapper style1">
         <div class="container" id="banner">
                 <p>This is Phase Shift, a responsive HTML5 site template freebie by TEMPLATED.</p>
